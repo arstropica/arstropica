@@ -1,0 +1,440 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Digitalsherpa Responsive Framework\n"
+"POT-Creation-Date: 2014-09-11 22:49-0500\n"
+"PO-Revision-Date: 2014-09-11 22:49-0500\n"
+"Last-Translator: DigitalSherpa <support@digitalsherpa.com>\n"
+"Language-Team: DigitalSherpa <support@digitalsherpa.com>\n"
+"Language: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: functions.php:647
+msgid "DS Responsive Header Menu"
+msgstr ""
+
+#: functions.php:648
+msgid "DS Responsive Footer Menu"
+msgstr ""
+
+#: functions.php:727
+msgid "Log in"
+msgstr ""
+
+#: functions.php:728
+msgid "Log out"
+msgstr ""
+
+#: functions.php:852
+msgid " Widget Area"
+msgstr ""
+
+#: functions.php:855
+msgid "This is the "
+msgstr ""
+
+#: functions.php:949 functions.php:989
+msgid "Sticky"
+msgstr ""
+
+#: functions.php:958 lib/classes/class-controls.php:652
+msgid "Edit"
+msgstr ""
+
+#: functions.php:968 functions.php:997 functions.php:1027
+msgid "1 Comment"
+msgstr ""
+
+#: functions.php:968 functions.php:997 functions.php:1029
+msgid "% Comments"
+msgstr ""
+
+#: functions.php:1025
+msgid "No Comments"
+msgstr ""
+
+#: functions.php:1031
+msgid "Comments Off"
+msgstr ""
+
+#: functions.php:1086
+#, php-format
+msgid "Comment on %s"
+msgstr ""
+
+#: functions.php:1293
+msgid "<p class=\"teaser-text\">"
+msgstr ""
+
+#: functions.php:1470
+msgid "&larr; Previous"
+msgstr ""
+
+#: functions.php:1471
+msgid "Next &rarr;"
+msgstr ""
+
+#: functions.php:1475
+msgid "<i class=\"icon-left-dir\"></i><span>Previous</span>"
+msgstr ""
+
+#: functions.php:1476
+msgid "<span>Next</span><i class=\"icon-right-dir\"></i>"
+msgstr ""
+
+#: functions.php:1479
+msgid "<i class=\"glyphicon glyphicon-chevron-left\"></i><span>Previous</span>"
+msgstr ""
+
+#: functions.php:1480
+msgid "<span>Next</span><i class=\"glyphicon glyphicon-chevron-right\"></i>"
+msgstr ""
+
+#: functions.php:1492
+msgid "Posts navigation"
+msgstr ""
+
+#: functions.php:1549
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: functions.php:1909 functions.php:1911 functions.php:1913 functions.php:1916
+#: functions.php:1921
+#, php-format
+msgid "%s"
+msgstr ""
+
+#: functions.php:1923
+msgid "404"
+msgstr ""
+
+#: functions.php:2512 functions.php:2534
+#, php-format
+msgid "%s ago"
+msgstr ""
+
+#: header.php:136 header.php:181 searchform.php:26 searchform.php:28
+msgid "Search"
+msgstr ""
+
+#: lib/options.php:265
+msgid " Settings"
+msgstr ""
+
+#: lib/options.php:265
+msgid "Theme Settings"
+msgstr ""
+
+#: lib/options.php:359
+msgid "Media Library"
+msgstr ""
+
+#: lib/options.php:364
+msgid "Style Editor"
+msgstr ""
+
+#: lib/options.php:369
+msgid "Import Theme Settings"
+msgstr ""
+
+#: lib/options.php:370
+msgid "Export Theme Settings"
+msgstr ""
+
+#: lib/options.php:371
+msgid "Email Theme Settings"
+msgstr ""
+
+#: lib/options.php:984
+msgid "Reset Theme Options"
+msgstr ""
+
+#: lib/options.php:986
+msgid "Reset all Theme Options"
+msgstr ""
+
+#: lib/options.php:1019
+msgid "Import / Export"
+msgstr ""
+
+#: lib/options.php:1021
+msgid "Import / Export Theme Options"
+msgstr ""
+
+#: lib/options.php:1371
+msgid "Open Library"
+msgstr ""
+
+#: lib/options.php:1408
+msgid "Current Snapshot"
+msgstr ""
+
+#: lib/options.php:1413
+msgid "Save Preset"
+msgstr ""
+
+#: lib/options.php:1418
+msgid "Remove Preset"
+msgstr ""
+
+#: lib/options.php:1445
+msgid "Import"
+msgstr ""
+
+#: lib/options.php:1472
+msgid "Export"
+msgstr ""
+
+#: lib/options.php:1501
+msgid "Send Mail"
+msgstr ""
+
+#: lib/options.php:1980
+msgid ""
+"You do not have sufficient permissions to use this feature on this site."
+msgstr ""
+
+#: lib/options.php:1983
+msgid "Error Downloading file."
+msgstr ""
+
+#: lib/classes/class-controls.php:96
+msgid "Hex Value"
+msgstr ""
+
+#: lib/classes/class-controls.php:142
+msgid "Font Family"
+msgstr ""
+
+#: lib/classes/class-controls.php:151
+msgid "Font Color"
+msgstr ""
+
+#: lib/classes/class-controls.php:446
+msgid "Discover"
+msgstr ""
+
+#: lib/classes/class-controls.php:488
+msgid " URL"
+msgstr ""
+
+#: lib/classes/class-controls.php:562
+msgid "Validate"
+msgstr ""
+
+#: lib/classes/class-controls.php:651
+msgid "Merge"
+msgstr ""
+
+#: lib/classes/class-controls.php:655
+msgid "Add New"
+msgstr ""
+
+#: lib/classes/class-controls.php:745
+msgid "Reset Settings"
+msgstr ""
+
+#: lib/functions/child-functions.php:158
+msgid "Full width sidebar that takes four small horizontal widgets."
+msgstr ""
+
+#: lib/functions/child-functions.php:167
+msgid "Full width sidebar that takes four large horizontal widgets."
+msgstr ""
+
+#: lib/functions/deprecated.php:214
+msgid "Choose Layout :"
+msgstr ""
+
+#: lib/functions/deprecated.php:221
+msgid "No Sidebars"
+msgstr ""
+
+#: lib/functions/deprecated.php:233
+msgid "Sidebar - Content"
+msgstr ""
+
+#: lib/functions/deprecated.php:250
+msgid "Full Width"
+msgstr ""
+
+#: lib/functions/deprecated.php:262
+msgid "Content - Sidebar"
+msgstr ""
+
+#: lib/plugins/ds_featured_posts_plugin.php:67
+msgid "Display Thumbnails"
+msgstr ""
+
+#: lib/plugins/ds_featured_posts_plugin.php:70
+msgid "Display Excerpt"
+msgstr ""
+
+#: lib/plugins/ds_featured_posts_plugin.php:73
+msgid "Display Full Excerpt"
+msgstr ""
+
+#: lib/plugins/ds_featured_posts_plugin.php:76
+msgid "Display Post Meta"
+msgstr ""
+
+#: lib/plugins/ds_featured_posts_plugin.php:79
+msgid "Display on Front Page Only"
+msgstr ""
+
+#: templates/404.php:25
+#, php-format
+msgid ""
+"The page you are looking for no longer exists. Perhaps you can return back "
+"to the site's <a href=\"%s\">homepage</a> and see if you can find what you "
+"are looking for. Or, you can try finding it by using the search form below."
+msgstr ""
+
+#: templates/404.php:31
+#, php-format
+msgid ""
+"The page you are looking for no longer exists. Perhaps you can return back "
+"to the site's <a href=\"%s\">homepage</a> and see if you can find what you "
+"are looking for. Or, you can try finding it with the information below."
+msgstr ""
+
+#: templates/404.php:35 templates/content-living-at.php:396
+#: templates/content-your-team.php:116 templates/content.php:114
+msgid "Pages:"
+msgstr ""
+
+#: templates/404.php:40
+msgid "Categories:"
+msgstr ""
+
+#: templates/404.php:49
+msgid "Authors:"
+msgstr ""
+
+#: templates/404.php:54
+msgid "Monthly:"
+msgstr ""
+
+#: templates/404.php:59
+msgid "Recent Posts:"
+msgstr ""
+
+#: templates/author.php:46
+msgid "Posts"
+msgstr ""
+
+#: templates/author.php:49 templates/comments.php:106
+msgid "Website"
+msgstr ""
+
+#: templates/author.php:53
+msgid "Twitter"
+msgstr ""
+
+#: templates/author.php:57
+msgid "Facebook"
+msgstr ""
+
+#: templates/author.php:61
+msgid "Google+"
+msgstr ""
+
+#: templates/author.php:61
+msgid "author"
+msgstr ""
+
+#: templates/comment.php:27
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: templates/comment.php:28
+msgid "(Edit)"
+msgstr ""
+
+#: templates/comment.php:32
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: templates/comments.php:36
+#, php-format
+msgid "One Response to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Responses to &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/comments.php:46
+msgid "&larr; Older comments"
+msgstr ""
+
+#: templates/comments.php:49
+msgid "Newer comments &rarr;"
+msgstr ""
+
+#: templates/comments.php:57 templates/comments.php:68
+msgid "Comments are closed."
+msgstr ""
+
+#: templates/comments.php:77
+msgid "Leave a Reply"
+msgstr ""
+
+#: templates/comments.php:77
+#, php-format
+msgid "Leave a Reply to %s"
+msgstr ""
+
+#: templates/comments.php:80
+#, php-format
+msgid "You must be <a href=\"%s\">logged in</a> to post a comment."
+msgstr ""
+
+#: templates/comments.php:85
+#, php-format
+msgid "Logged in as <a href=\"%s/wp-admin/profile.php\">%s</a>."
+msgstr ""
+
+#: templates/comments.php:86
+msgid "Log out of this account"
+msgstr ""
+
+#: templates/comments.php:86
+msgid "Log out &raquo;"
+msgstr ""
+
+#: templates/comments.php:91
+msgid "Name"
+msgstr ""
+
+#: templates/comments.php:93 templates/comments.php:101
+msgid " (required)"
+msgstr ""
+
+#: templates/comments.php:99
+msgid "Email (will not be published)"
+msgstr ""
+
+#: templates/comments.php:111
+msgid "Comment"
+msgstr ""
+
+#: templates/comments.php:114
+msgid "Submit Comment"
+msgstr ""
+
+#: templates/content-living-at.php:394 templates/content-your-team.php:114
+#: templates/content.php:112
+msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
+#: templates/content.php:138
+msgid "Nothing Found for \""
+msgstr ""

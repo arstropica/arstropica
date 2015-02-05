@@ -1,0 +1,125 @@
+/*ArsTropica  Framework Theme Customize Stylesheet*/
+.wp-full-overlay {
+    z-index: 150000 !important;
+}
+.expanded .wp-full-overlay-sidebar {
+    width: 600px !important;
+}
+.wp-full-overlay.expanded {
+    margin-left: 600px;
+}
+.customize-control-presets .actions,.customize-control-presets .library {
+    display: none;
+    float: left;
+    width: 100%;
+}
+.customize-control-presets.open .actions,.customize-control-presets.open .library {
+    display: block;
+}
+.customize-control-presets .at-edit-preset, .customize-control-presets .at-merge-preset{
+    display: none;
+}
+.customize-control-presets.edit .at-edit-preset, .customize-control-presets.edit .at-merge-preset{
+    display: block;
+}
+.customize-control-color[id$="link"],
+.customize-control-color[id$="visited"],
+.customize-control-color[id$="active"],
+.customize-control-color[id$="hover"],
+.customize-control-color[id$="color"]
+{
+    width: 48% !important;
+    float: left;
+    clear: none !important;
+}
+.accordion-section .customize-control-presets .actions {
+    text-align: right;
+}
+
+.accordion-section .customize-control-presets .library ul {
+    border-bottom: 1px solid #ddd;
+    float: left;
+    width: 100%;
+    margin: 10px 0 0;
+}
+
+.accordion-section .customize-control-presets .library li {
+    color: #ccc;
+    float: left;
+    padding: 3px 15px;
+    margin: 0;
+    border: 1px solid transparent;
+}
+
+.accordion-section .customize-control-presets .library li.library-selected {
+    margin-bottom: -1px;
+    padding-bottom: 4px;
+    color: #666;
+    border-color: #ddd;
+    border-bottom-color: #fff;
+}
+
+.accordion-section .customize-control-transfer .library ul {
+    border-bottom: 1px solid #ddd;
+    float: left;
+    width: 100%;
+    margin: 10px 0 0;
+}
+
+.accordion-section .customize-control-transfer .library li {
+    color: #ccc;
+    float: left;
+    padding: 3px 15px;
+    margin: 0;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.accordion-section .customize-control-transfer .library li.library-selected {
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ddd;
+    border-bottom-color: #fff;
+    cursor: default;
+    margin-bottom: -1px;
+    padding-bottom: 4px;
+}
+
+.accordion-section .customize-control-transfer .library .library-content {
+    display: none;
+    width: 100%;
+    float: left;
+    padding: 10px 0;
+}
+
+.accordion-section .customize-control-transfer .library .library-content.library-selected {
+    margin-bottom: -1px;
+    padding-bottom: 4px;
+    color: #666;
+    border-color: #ddd;
+    border-bottom-color: #fff;
+    display: block;
+}
+
+#header-collapse-sidebar.accordion-section-title:after {
+    border: 0 none;
+    content: none !important;
+    display: block;
+}
+
+#header-collapse-sidebar.accordion-section-title:before {
+    content: none !important;
+}
+
+#header-collapse-sidebar.accordion-section-title {
+    border-bottom: 1px solid #dfdfdf;
+    background: none repeat scroll 0 0 #eee;
+    height: 45px;
+}
+
+#customize-controls label {
+    display: inherit;
+    max-width: inherit;
+    margin-bottom: inherit;
+    font-weight: inherit;
+}

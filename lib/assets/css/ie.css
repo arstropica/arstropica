@@ -1,0 +1,19 @@
+/*ArsTropica  Responsive Framework IE Stylesheet*/
+*:not(.post-thumbnail) > IMG
+{
+	width: auto;
+}
+.msie.obsolete .social-share-in-title
+{
+	border: none;
+}
+.msie.obsolete .navbar-brand.desktop IMG.navbar-logo
+{
+	max-height: 51px;
+	max-width: 200px;
+}
+.soliloquy-thumbnails-container
+{
+	width: 100% !important;
+	max-width: 100% !important;
+}
