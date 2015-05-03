@@ -663,7 +663,7 @@
         require_once(template_directory . '/lib/options.php');
         require_once(template_directory . '/lib/theme_mod.php');
 
-        if (is_admin() && current_user_can('edit_theme_options')) {
+        if (current_user_can('edit_theme_options')) {
             $at_theme_options = new at_responsive_theme_options();
         }
         $at_theme_custom = new at_responsive_theme_mod();

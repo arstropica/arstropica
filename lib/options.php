@@ -334,8 +334,6 @@
         */
         public function page_init($wp_customize) {
             global $theme_namespace;
-            if (!is_admin())
-                return;
             // error_reporting(E_ERROR);
             require(template_directory . '/lib/classes/class-controls.php');
             $sections = $this->option_sections;
