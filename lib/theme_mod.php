@@ -131,12 +131,15 @@
                         }
                     }
                     // $ref = isset($_path) ? $_path : null;
-                    $theme_options = $_theme_options;
+                    // $theme_options = $_theme_options;
+                    $saved_theme_options = get_theme_mod('at_responsive', false) ?: array();
+                    $theme_options = array_replace_recursive($saved_theme_options, $_theme_options);
                 } else {
-                    $_theme_options = array();
+                    // $_theme_options = array();
+                    $theme_options = get_theme_mod('at_responsive', false) ?: array();
                 }
             } else {
-                $theme_options = get_theme_mod('at_responsive', false);
+                $theme_options = get_theme_mod('at_responsive', false) ?: array();
             }
             if ($theme_options) {
                 $preset = isset($theme_options['settings']['schemes']) ? $theme_options['settings']['schemes'] : false;
@@ -708,7 +711,7 @@
             } elseif ($return) {
                 return implode("\n", $rules);
             } else {
-                // add_action('wp_footer', function() use ($rules, $theme_options, $factory) {echo '<textarea rows="10" cols="25" style="width: 100%;">' . '<style type="text/css">' . "\n" . implode("\n", $rules) . "\n" . '</style>' . "\n\n" . print_r($theme_options, true)  . "\n\n" . print_r(($factory), true) . '</textarea>';}, 10 ); 
+                // $is_customizer = $this->is_customizer(); add_action('wp_footer', function() use ($rules, $theme_options, $factory, $is_customizer) {echo '<textarea rows="10" cols="25" style="color: #000; width: 100%;">' . '<style type="text/css">' . "\n" . implode("\n", $rules) . "\n" . '</style>' . "\n\n" . print_r($_REQUEST, true)  . "\n\n" . print_r($theme_options, true)  . "\n\n" . print_r(($factory), true) . "\n\n" . "Is Customizer: " . var_export($is_customizer, true) . '</textarea>';}, 10 ); 
                 echo '<style type="text/css">' . "\n" . implode("\n", $rules) . "\n" . '</style>';
             }
         }

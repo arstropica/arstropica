@@ -123,3 +123,7 @@
     margin-bottom: inherit;
     font-weight: inherit;
 }
+
+.control-section .attachment-thumb {
+    width: auto !important;
+}
