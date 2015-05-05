@@ -131,12 +131,12 @@
                         }
                     }
                     // $ref = isset($_path) ? $_path : null;
-                    // $theme_options = $_theme_options;
-                    $saved_theme_options = get_theme_mod('at_responsive', false) ?: array();
-                    $theme_options = array_replace_recursive($saved_theme_options, $_theme_options);
+                    //$theme_options = $_theme_options;
+                     $saved_theme_options = get_theme_mod('at_responsive', false) ?: array();
+                     $theme_options = array_replace_recursive($saved_theme_options, $_theme_options);
                 } else {
-                    // $_theme_options = array();
-                    $theme_options = get_theme_mod('at_responsive', false) ?: array();
+                    //$_theme_options = array();
+                     $theme_options = get_theme_mod('at_responsive', false) ?: array();
                 }
             } else {
                 $theme_options = get_theme_mod('at_responsive', false) ?: array();
