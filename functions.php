@@ -2906,27 +2906,27 @@ EOT;
     /**
     * Add img-responsive class to inline images
     * 
+    * Replaced Regex substitution with more stable DOM parsing -- Akin Williams 050715
+    * 
     * @param string $content Parameter 
     * @since 1.0
     * @return unknown Return 
     */
     function at_responsive_filter_singular_images($content) {
+        libxml_use_internal_errors(true);
         $new_content = $content;
         if (is_singular() && is_main_query()) {
-            $pattern = '/<img[^>]*(class\s?=\s?["\'])[^>]*\>/i';
-            if (preg_match_all($pattern, $new_content, $images, PREG_PATTERN_ORDER | PREG_OFFSET_CAPTURE)) {
-                if (count($images) >= 2) {
-                    $replacements = array();
-                    foreach ($images[0] as $tag_counter => $tag_data) {
-                        $replacements[$tag_counter] = str_replace($images[1][$tag_counter][0], $images[1][$tag_counter][0] . 'img-responsive ', $tag_data[0]);
-                    }
-                    foreach ($replacements as $tag_counter => $replacement) {
-                        $new_content = str_replace($images[0][$tag_counter], $replacement, $new_content);
-                    }
-                    // add_action('wp_footer', function() use ($replacements) {echo '<textarea rows="10" cols="25" style="width: 100%;">' . "\n\n" . print_r($replacements, true)  . "\n\n" . '</textarea>';}, 10 ); 
-                }
+            $doc = new DOMDocument();
+            $doc->loadHTML($content);
+            $images = $doc->getElementsByTagName('img');
+            foreach ($images as $img) {
+                $class = $img->getAttribute('class') ?: "";
+                if (strpos($class, 'img-responsive') === false)
+                    $img->setAttribute('class', $class . " img-responsive");
             }
+            $new_content = $doc->saveHTML();
         }
+        libxml_clear_errors();
         return $new_content;
     }
 
