@@ -2917,7 +2917,7 @@ EOT;
         $new_content = $content;
         if (is_singular() && is_main_query()) {
             $doc = new DOMDocument();
-            $doc->loadHTML($content);
+            $doc->loadHTML('<?xml encoding="utf-8" ?>' . $content); // Added UTF character encoding -- Akin Williams 051115
             $images = $doc->getElementsByTagName('img');
             foreach ($images as $img) {
                 $class = $img->getAttribute('class') ?: "";
