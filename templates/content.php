@@ -29,14 +29,14 @@ switch ($layout_type) {
     case 'home' :
     default : {
             ?>
-            <article id="post-<?php the_ID(); ?>" <?php post_class("col-md-{$grid_values['home']}"); ?> role="main">
+            <article id="post-<?php the_ID(); ?>" <?php post_class("col-md-{$grid_values['home']}"); ?> itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost" role="main">
                 <div class="layout-wrapper">
                     <div class="content-wrapper eq-height">
                         <div class="entry-header">
                             <div class="entry-meta">
                                 <?php echo at_responsive_post_entry(); ?>
                             </div>
-                            <div class="post-thumbnail">
+                            <div class="post-thumbnail" itemprop="image">
                                 <?php at_responsive_post_thumbnail(); ?>
                             </div>
                             <?php at_responsive_post_title(); ?>
@@ -69,7 +69,7 @@ switch ($layout_type) {
                                 <div class="entry-meta">
                                     <?php echo at_responsive_post_entry(); ?>
                                 </div>
-                                <div class="post-thumbnail">
+                                <div class="post-thumbnail" itemprop="image">
                                     <?php at_responsive_post_thumbnail(); ?>
                                 </div>
                             </div>

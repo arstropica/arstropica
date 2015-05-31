@@ -29,7 +29,7 @@ $grid_classes = at_responsive_get_content_grid_classes();
                 <div class="entry-meta">
                     <?php echo at_responsive_post_entry(); ?>
                 </div>
-                <div class="post-thumbnail">
+                <div class="post-thumbnail" itemprop="image">
                     <?php at_responsive_post_thumbnail(); ?>
                 </div>
                 <?php at_responsive_post_title(); ?>
