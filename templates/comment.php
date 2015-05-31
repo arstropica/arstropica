@@ -37,4 +37,3 @@ global $theme_namespace;
         <?php comment_text(); ?>
     </div>
     <?php comment_reply_link(array_merge($args, array('depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
-</div>
