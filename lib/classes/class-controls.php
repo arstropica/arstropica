@@ -500,7 +500,7 @@
                 $('.at-validate-gplus').on('click', function(e) {
                     e.preventDefault();
                     var test_post_url, vWindow;
-                    var gsdt_url = "http://www.google.com/webmasters/tools/richsnippets?q=";
+                    var gsdt_url = "https://developers.google.com/structured-data/testing-tool?url=";
                     var raw_test_post_url = $('.at_responsive_gplus_chooser').val();
                     if (raw_test_post_url) {
                         test_post_url = decodeURIComponent(raw_test_post_url);
