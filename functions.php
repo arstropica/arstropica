@@ -960,11 +960,11 @@
             // Single Post
             $edit_post = get_edit_post_link() ? (' <span class="edit-link">(' . '<a class="post-edit-link" href="' . get_edit_post_link() . '">' . __('Edit') . '</a>)' . '</span>') : '';
 
-            $output .= sprintf('<p><span class="author">by <span class="author vcard"><span class="fn"><a class="url fn n" href="%4$s" rel="author">%5$s</a></span></span>%6$s</span> on <span class="date"><span class="entry-date"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span></p>', esc_url(get_permalink()), esc_attr(get_the_date('c')), esc_html(get_the_date()), esc_url(get_author_posts_url(get_the_author_meta('ID'))), get_the_author(), $edit_post
+            $output .= sprintf('<p><span class="author">by <span class="author vcard"><span class="fn"><a class="url fn" href="%4$s" rel="author">%5$s</a></span></span>%6$s</span> on <span class="date"><span class="entry-date"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span></p>', esc_url(get_permalink()), esc_attr(get_the_date('c')), esc_html(get_the_date()), esc_url(get_author_posts_url(get_the_author_meta('ID'))), get_the_author(), $edit_post
             );
             else :
             // Archives
-            $output .= sprintf('<span>by <span class="author vcard"><span class="fn"><a class="url fn n" href="%4$s" rel="author">%5$s</a></span></span></span> | <span class="entry-date"><span class="date published time" title="%3$s"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span>', esc_url(get_permalink()), esc_attr(get_the_date('c')), esc_html(get_the_date()), esc_url(get_author_posts_url(get_the_author_meta('ID'))), get_the_author()
+            $output .= sprintf('<span>by <span class="author vcard"><span class="fn"><a class="url fn" href="%4$s" rel="author">%5$s</a></span></span></span> | <span class="entry-date"><span class="date published time" title="%3$s"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span>', esc_url(get_permalink()), esc_attr(get_the_date('c')), esc_html(get_the_date()), esc_url(get_author_posts_url(get_the_author_meta('ID'))), get_the_author()
             );
             if ($post && get_comments_number($post->ID) && (!post_password_required())) {
                 $output .= ' | <span class="comments-link">';
@@ -993,7 +993,7 @@
         }
 
         // Set up and print post meta information.
-        $output .= sprintf('<span>by <span class="author vcard"><span class="fn"><a class="url fn n" href="%4$s" rel="author">%5$s</a></span></span></span> | <span class="entry-date"><span class="date published time" title="%3$s"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span>', esc_url(get_permalink($_post->ID)), esc_attr(get_the_date('c', $_post)), esc_html(get_the_date('', $_post)), esc_url(get_author_posts_url(get_the_author_meta('ID', $_post->post_author))), get_the_author_meta('user_nicename', $_post->post_author)
+        $output .= sprintf('<span>by <span class="author vcard"><span class="fn"><a class="url fn" href="%4$s" rel="author">%5$s</a></span></span></span> | <span class="entry-date"><span class="date published time" title="%3$s"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span>', esc_url(get_permalink($_post->ID)), esc_attr(get_the_date('c', $_post)), esc_html(get_the_date('', $_post)), esc_url(get_author_posts_url(get_the_author_meta('ID', $_post->post_author))), get_the_author_meta('user_nicename', $_post->post_author)
         );
         if ($_post && get_comments_number($_post->ID) && (!post_password_required($_post))) {
             $output .= ' | <span class="comments-link">';
