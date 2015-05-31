@@ -334,8 +334,8 @@
         */
         public function page_init($wp_customize) {
             global $theme_namespace;
-            if (!is_admin())
-                return;
+            // if (!is_admin())
+                // return;
             // error_reporting(E_ERROR);
             require(template_directory . '/lib/classes/class-controls.php');
             $sections = $this->option_sections;
@@ -1728,6 +1728,59 @@
         }
 
         /**
+        * Get Font List from Google
+        * 
+        * @param string $url Parameter 
+        * @param bool $cached Parameter 
+        * @since 1.0
+        * @return string    
+        * @access public  
+        */
+        public function get_fonts($url, $cached = false) {
+            $success = false;
+            $cachedFontURL = template_url . '/lib/assets/js/webfonts.json';
+            $fonts = file_get_contents($url);
+            if ($fonts) {
+                $fontArr = json_decode($fonts, true);
+                if ($fontArr && isset($fontArr["items"])) {
+                    $success = true;
+                    $js = <<<JS
+                    <script type="text/javascript">
+                    jQuery(function($){
+                    var api = wp.customize;
+                    var setFonts = function(fonts) {
+                        if (typeof fonts != 'undefined'){
+                            var font_choosers = $('.wp-custom-font-family-chooser');
+                            font_choosers.each(function(){
+                                var _chooser = $(this);
+                                var current_value = _chooser.data('selected-option');
+                                for (var i = 0; i < fonts.items.length; i++) {      
+                                    _chooser
+                                    .append($("<option></option>")
+                                        .attr("value", fonts.items[i].family)
+                                        .attr("selected", fonts.items[i].family === current_value)
+                                        .text(fonts.items[i].family));
+                                }    
+                            });                             
+                        }
+                    };
+                    var initFonts = function(){
+                        setFonts($fonts);
+                    };
+                    api.bind( 'ready', initFonts );                    
+                    });
+                    </script>
+JS;
+                    return $js;
+                }
+            }
+            if (! $success && ! $cached) {
+                return $this->get_fonts($cachedFontURL, true);
+            }
+            return false;
+        }
+
+        /**
         * Print Scripts
         * 
         * @param string $hook Parameter 
@@ -1739,6 +1792,8 @@
             wp_print_media_templates();
             echo '<script type="text/javascript">var google_api_key = "' . $this->google_api_key . '";</script>';
             echo '<script type="text/javascript">var ajax_url = "' . admin_url('admin-ajax.php') . '";</script>';
+            $fontUrl = "https://www.googleapis.com/webfonts/v1/webfonts?key=" . $this->google_api_key;
+            echo $this->get_fonts($fontUrl);
         }
 
         /**
@@ -1772,7 +1827,7 @@
         */
         public function customize_styles() {
             wp_enqueue_style('arstropica-customize-styles', template_url . '/lib/assets/css/admin-customize.css');
-            wp_enqueue_style('arstropica-customize-modal-styles', template_url . '/lib/assets/js/bootstrap/css/customize-bootstrap.css');
+            // wp_enqueue_style('arstropica-customize-modal-styles', template_url . '/lib/assets/js/bootstrap/css/customize-bootstrap.css');
         }
 
         /**
