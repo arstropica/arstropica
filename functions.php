@@ -712,6 +712,7 @@
     function at_responsive_nav_link_atts($atts, $item, $args) {
         if (empty($atts['title']))
             $atts['title'] = $item->title;
+            $atts['itemtype'] = 'http://schema.org/SiteNavigationElement';
         return $atts;
     }
 
@@ -960,11 +961,11 @@
             // Single Post
             $edit_post = get_edit_post_link() ? (' <span class="edit-link">(' . '<a class="post-edit-link" href="' . get_edit_post_link() . '">' . __('Edit') . '</a>)' . '</span>') : '';
 
-            $output .= sprintf('<p><span class="author">by <span class="author vcard"><span class="fn"><a class="url fn" href="%4$s" rel="author">%5$s</a></span></span>%6$s</span> on <span class="date"><span class="entry-date"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span></p>', esc_url(get_permalink()), esc_attr(get_the_date('c')), esc_html(get_the_date()), esc_url(get_author_posts_url(get_the_author_meta('ID'))), get_the_author(), $edit_post
+            $output .= sprintf('<p><span class="author">by <span class="author vcard" itemprop="name"><span class="fn"><a class="url fn" href="%4$s" rel="author" itemscope="itemscope" itemtype="http://schema.org/Person">%5$s</a></span></span>%6$s</span> on <span class="date"><span class="entry-date"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s" itemprop="datePublished">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span></p>', esc_url(get_permalink()), esc_attr(get_the_date('c')), esc_html(get_the_date()), esc_url(get_author_posts_url(get_the_author_meta('ID'))), get_the_author(), $edit_post
             );
             else :
             // Archives
-            $output .= sprintf('<span>by <span class="author vcard"><span class="fn"><a class="url fn" href="%4$s" rel="author">%5$s</a></span></span></span> | <span class="entry-date"><span class="date published time" title="%3$s"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span>', esc_url(get_permalink()), esc_attr(get_the_date('c')), esc_html(get_the_date()), esc_url(get_author_posts_url(get_the_author_meta('ID'))), get_the_author()
+            $output .= sprintf('<span>by <span class="author vcard" itemprop="name"><span class="fn"><a class="url fn" href="%4$s" rel="author" itemscope="itemscope" itemtype="http://schema.org/Person">%5$s</a></span></span></span> | <span class="entry-date"><span class="date published time" title="%3$s"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s" itemprop="datePublished">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span>', esc_url(get_permalink()), esc_attr(get_the_date('c')), esc_html(get_the_date()), esc_url(get_author_posts_url(get_the_author_meta('ID'))), get_the_author()
             );
             if ($post && get_comments_number($post->ID) && (!post_password_required())) {
                 $output .= ' | <span class="comments-link">';
@@ -993,7 +994,7 @@
         }
 
         // Set up and print post meta information.
-        $output .= sprintf('<span>by <span class="author vcard"><span class="fn"><a class="url fn" href="%4$s" rel="author">%5$s</a></span></span></span> | <span class="entry-date"><span class="date published time" title="%3$s"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span>', esc_url(get_permalink($_post->ID)), esc_attr(get_the_date('c', $_post)), esc_html(get_the_date('', $_post)), esc_url(get_author_posts_url(get_the_author_meta('ID', $_post->post_author))), get_the_author_meta('user_nicename', $_post->post_author)
+        $output .= sprintf('<span>by <span class="author vcard" itemprop="name"><span class="fn"><a class="url fn" href="%4$s" rel="author" itemscope="itemscope" itemtype="http://schema.org/Person">%5$s</a></span></span></span> | <span class="entry-date"><span class="date published time" title="%3$s"><a href="%1$s" rel="bookmark"><time class="entry-date" datetime="%2$s" itemprop="datePublished">%3$s</time></a></span><time class="entry-date updated hidden" datetime="%2$s">' . get_the_modified_time(get_option('date_format')) . '</time></span>', esc_url(get_permalink($_post->ID)), esc_attr(get_the_date('c', $_post)), esc_html(get_the_date('', $_post)), esc_url(get_author_posts_url(get_the_author_meta('ID', $_post->post_author))), get_the_author_meta('user_nicename', $_post->post_author)
         );
         if ($_post && get_comments_number($_post->ID) && (!post_password_required($_post))) {
             $output .= ' | <span class="comments-link">';
@@ -1247,7 +1248,7 @@ EOT;
     */
     function at_responsive_post_title($title = false) {
         if (is_singular()) :
-            $before = '<h1 class="entry-title">';
+            $before = '<h1 class="entry-title" itemprop="headline">';
             $after = '</h1>';
             if ($title) :
                 echo $before . $title . $after;
@@ -1255,7 +1256,7 @@ EOT;
                 the_title($before, $after);
                 endif;
             else :
-            $before = '<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark">';
+            $before = '<h2 class="entry-title"><a href="' . esc_url(get_permalink()) . '" rel="bookmark" itemprop="headline">';
             $after = '</a></h2>';
             if ($title) :
                 echo $before . $title . $after;
@@ -1293,7 +1294,7 @@ EOT;
     function at_responsive_modify_post_excerpt($excerpt) {
         global $theme_namespace;
         $nopee = at_responsive_strip_selected_tags($excerpt, array('p'));
-        $newexcerpt = __('<p class="teaser-text">' . $nopee . '</p>', $theme_namespace);
+        $newexcerpt = __('<p class="teaser-text" itemprop="text">' . $nopee . '</p>', $theme_namespace);
         $newexcerpt .= at_responsive_excerpt_more();
         if ($newexcerpt)
             $excerpt = $newexcerpt;

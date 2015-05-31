@@ -40,7 +40,7 @@ $post_count = 0;
 $grid_column_count = at_responsive_grid_column_count();
 if (have_posts()) :
     ?>
-    <div class="container main">
+    <div class="container main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
         <?php
         // Start the Loop.
         while (have_posts()) : the_post();
