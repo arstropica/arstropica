@@ -124,6 +124,7 @@
             add_action('customize_controls_enqueue_scripts', array($this, 'add_scripts'));
             add_action('customize_controls_print_scripts', array($this, 'print_scripts'));
             add_action('customize_controls_print_styles', array($this, 'customize_styles'));
+            add_action("customize_controls_print_footer_scripts", array($this, 'email_tab_modal'));
             add_action('customize_controls_print_footer_scripts', array($this, 'add_media_manager_template_to_customizer'));
             add_action('customize_controls_print_footer_scripts', array($this, 'print_footer_scripts'));
             add_action('load-admin.php', array($this, 'admin_redirect_download_files'));
@@ -1377,8 +1378,6 @@
         private function email_tab($ctrlstr) {
             $setting_id = "at_responsive[" . (implode('][', explode('_', $ctrlstr))) . ']';
 
-            add_action("customize_controls_print_footer_scripts", array($this, 'email_tab_modal'));
-
             if (isset($this->transfer_controls[$ctrlstr])) :
                 $control = $this->transfer_controls[$ctrlstr];
             ?>
@@ -1723,6 +1722,7 @@
         public function add_scripts($hook = null) {
             wp_enqueue_style('wp-color-picker');
             wp_enqueue_media();
+            wp_print_media_templates();
             wp_enqueue_script('at-responsive-admin-script', template_url . '/lib/assets/js/at-responsive-admin.js', array(), false, true);
             wp_enqueue_script('at-responsive-admin-bootstrap-script', template_url . '/lib/assets/js/bootstrap/js/bootstrap.min.js', array(), false, true);
         }
@@ -1759,7 +1759,8 @@
                                     .append($("<option></option>")
                                         .attr("value", fonts.items[i].family)
                                         .attr("selected", fonts.items[i].family === current_value)
-                                        .text(fonts.items[i].family));
+                                        .text(fonts.items[i].family))
+                                    .removeAttr('disabled');
                                 }    
                             });                             
                         }
@@ -1789,7 +1790,6 @@ JS;
         * @access public  
         */
         public function print_scripts($hook = null) {
-            wp_print_media_templates();
             echo '<script type="text/javascript">var google_api_key = "' . $this->google_api_key . '";</script>';
             echo '<script type="text/javascript">var ajax_url = "' . admin_url('admin-ajax.php') . '";</script>';
             $fontUrl = "https://www.googleapis.com/webfonts/v1/webfonts?key=" . $this->google_api_key;
@@ -1827,7 +1827,7 @@ JS;
         */
         public function customize_styles() {
             wp_enqueue_style('arstropica-customize-styles', template_url . '/lib/assets/css/admin-customize.css');
-            // wp_enqueue_style('arstropica-customize-modal-styles', template_url . '/lib/assets/js/bootstrap/css/customize-bootstrap.css');
+            wp_enqueue_style('arstropica-customize-modal-styles', template_url . '/lib/assets/js/bootstrap/css/customize-bootstrap.css', array(), '1.1');
         }
 
         /**
@@ -1931,7 +1931,8 @@ JS;
                 $at_theme_custom = new at_responsive_theme_mod();
             }
             if ($current_user->user_login == 'guest') {
-                $cached = @unserialize($at_theme_custom->_session_read('at_responsive_preview'));
+                // $cached = @unserialize($at_theme_custom->_session_read('at_responsive_preview'));
+                $cached = $at_theme_custom->_session_read('at_responsive_preview');
                 $options = isset($cached) ? $cached : $at_theme_custom->get_option(false, false, true);
             } else {
                 //here you get the options to export and set it as content, ex:
@@ -2057,7 +2058,8 @@ JS;
                 $at_theme_custom = new at_responsive_theme_mod();
             }
             if ($current_user->user_login == 'guest') {
-                $cached = @unserialize($at_theme_custom->_session_read('at_responsive_preview'));
+                // $cached = @unserialize($at_theme_custom->_session_read('at_responsive_preview'));
+                $cached = $at_theme_custom->_session_read('at_responsive_preview');
                 $options = isset($cached) ? $cached : $at_theme_custom->get_option(false, false, true);
             } else {
                 //here you get the options to export and set it as content, ex:

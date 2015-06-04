@@ -190,6 +190,7 @@
         */
         private function set_theme_options($values, $option_path = false, $customize = false) {
             $keys = ($option_path) ? explode("/", $option_path) : false;
+            $theme_options = false;
             if ($this->theme_options_customizer && $customize) {
                 $theme_options = $this->theme_options_customizer;
             } elseif ($customize) {
@@ -198,6 +199,10 @@
                 $mods = get_theme_mods();
                 $theme_options = isset($mods['at_responsive']) ? $mods['at_responsive'] : false;
             }
+            
+            if (! is_array($theme_options))
+                $theme_options = false;
+                
             if ($keys) {
                 $existing = &$theme_options;
                 foreach ($keys as $key) {
@@ -815,6 +820,7 @@
         public function at_theme_transfer() {
             $theme_options = $this->get_theme_options();
             $import_code = false;
+            $imported_opts = false;
             $attachment_id = $_POST['import_value'];
             if ($theme_options) {
                 if (current_user_can('edit_theme_options')) {
@@ -825,8 +831,12 @@
                         $import_code = str_replace("\n<!*!* END export Code !*!*>", "", $import_code);
                         $import_code = @base64_decode($import_code);
                         $import_code = @unserialize($import_code);
-                        if ($import_code) {
-                            set_theme_mod('at_responsive', $import_code);
+                        $import_code_serialized = json_decode($import_code, true);
+                        if (is_array($import_code_serialized) && isset($import_code_serialized['at_responsive_preview'])) {
+                            $imported_opts = @unserialize($import_code_serialized['at_responsive_preview']);
+                        }
+                        if ($imported_opts) {
+                            set_theme_mod('at_responsive', $imported_opts);
                             wp_delete_attachment($attachment_id);
                             die('Theme Options Reset!');
                         } else {
