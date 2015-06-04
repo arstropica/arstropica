@@ -3,6 +3,12 @@
 ### Description
 The ArsTropica Responsive Theme Framework for WordPress is a highly extensible, search-engine optimized WordPress Theme Framework featuring multiple widget areas, integration with several WordPress plugins, grid-based responsive layouts and much more.
 
+- Contributors: Arsropica <info@arstropica.com> 
+- Tags: WordPress Responsive Theme Framework
+- Requires at least: 3.8
+- Tested up to: 4.2.2
+- Stable tag: 1.0
+
 ### Framework Features
 - Perfect for turnkey deployment, but also easily extensible for child theme development
 - Search Engine Optimized - including integration with Facebook Open Graph and Google Rich Snippets
