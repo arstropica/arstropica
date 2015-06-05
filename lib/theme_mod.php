@@ -217,6 +217,9 @@
             }
             set_theme_mod('at_responsive', $theme_options);
             $this->theme_options = $theme_options;
+            if ($this->theme_options_customizer && $customize) {
+                $this->theme_options_customizer = $theme_options;
+            }
             return $theme_options;
         }
 

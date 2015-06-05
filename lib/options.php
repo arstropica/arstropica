@@ -1723,7 +1723,7 @@
             wp_enqueue_style('wp-color-picker');
             wp_enqueue_media();
             wp_print_media_templates();
-            wp_enqueue_script('at-responsive-admin-script', template_url . '/lib/assets/js/at-responsive-admin.js', array(), false, true);
+            wp_enqueue_script('at-responsive-admin-script', template_url . '/lib/assets/js/at-responsive-admin.js', array(), time(), true);
             wp_enqueue_script('at-responsive-admin-bootstrap-script', template_url . '/lib/assets/js/bootstrap/js/bootstrap.min.js', array(), false, true);
         }
 

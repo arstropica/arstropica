@@ -2713,10 +2713,12 @@ EOT;
         if (! $at_theme_custom->is_customizer())
             $at_theme_custom->set_option($at_responsive_grid, 'appearance/grid', false);
 
+        apply_filters('at_responsive_content_grid', $at_responsive_grid);
+        
         // For Theme Customizer Preview
         add_filter('at_responsive_theme_mod_at_responsive[appearance][grid]', function ($default) use ($at_responsive_grid) {$default = $at_responsive_grid; return $default;});
 
-        return apply_filters('at_responsive_content_grid', $at_responsive_grid);        
+        return $at_responsive_grid;        
     }
 
     /**
